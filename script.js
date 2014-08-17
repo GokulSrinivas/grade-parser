@@ -70,9 +70,9 @@ function drawgraph()
     var myBarChart = new Chart(ctx).Bar(data,{
         scaleBeginAtZero:false,
         scaleOverride:true,
-        scaleSteps:11,
+        scaleSteps:10,
         scaleStepWidth:1,
-        scaleStartValue: -1
+        scaleStartValue: 0
     });
     
     for(var i=0;i<gpa.length;i++)
