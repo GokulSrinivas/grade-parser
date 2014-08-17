@@ -2,7 +2,7 @@ var parsed;
 
 function loader(){
 
-$.getJSON("./data4.json",function(data){
+$.getJSON("./data3.json",function(data){
     parsed = JSON.parse(data);
     
 })
@@ -13,7 +13,7 @@ var score = [];
 var rolls = [];
 var gpa = [];
 var id = [];
-
+var zero=[];
 function makearray(){
     
     var x = 0;
@@ -24,6 +24,7 @@ function makearray(){
         gpa[i] = parsed[i]['gpa'];
         score[i] = parsed[i]['mark'];
         id[i] = parsed[i]['roll'];
+        zero[i] = parsed[i]['zero'];
     }
   
 //    console.log(rolls[0]);
@@ -76,7 +77,7 @@ function drawgraph()
     
     for(var i=0;i<gpa.length;i++)
     {
-        if(gpa[i]==0)
+        if(zero[i]=='true')
         {
             myBarChart.datasets[0].bars[i]['strokeColor']="rgba(220,0,0,0.5)";
             myBarChart.datasets[0].bars[i]['fillColor']="rgba(220,0,0,0.8)";
