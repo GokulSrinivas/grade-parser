@@ -26,9 +26,9 @@ function makearray(){
         id[i] = parsed[i]['roll'];
     }
   
-    console.log(rolls[0]); 
-    console.log(gpa[0]);
-    console.log(parsed[0]);    
+//    console.log(rolls[0]);
+//    console.log(gpa[0]);
+//    console.log(parsed[0]);
     
 }
 
@@ -66,9 +66,26 @@ function drawgraph()
     ]
 };
 
-    var myBarChart = new Chart(ctx).Bar(data,{ scaleBeginAtZero: false});
+    var myBarChart = new Chart(ctx).Bar(data,{
+        scaleBeginAtZero:false,
+        scaleOverride:true,
+        scaleSteps:11,
+        scaleStepWidth:1,
+        scaleStartValue: -1
+    });
     
+    for(var i=0;i<gpa.length;i++)
+    {
+        if(gpa[i]==0)
+        {
+            myBarChart.datasets[0].bars[i]['strokeColor']="rgba(220,0,0,0.5)";
+            myBarChart.datasets[0].bars[i]['fillColor']="rgba(220,0,0,0.8)";
+            myBarChart.datasets[0].bars[i]['highlightFill']="rgba(220,0,0,0.75)";
+            myBarChart.datasets[0].bars[i]['highlightStroke']="rgba(220,0,0,1)";
+        }
+    }
     
+
     var canvas = document.getElementById("graph");
     canvas.onclick = function(evt){
     var activeBars = myBarChart.getBarsAtEvent(evt);
