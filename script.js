@@ -2,7 +2,7 @@ var parsed;
 
 function loader(){
 
-$.getJSON("./data3.json",function(data){
+$.getJSON("./data2.json",function(data){
     parsed = JSON.parse(data);
     
 })

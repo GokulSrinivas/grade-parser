@@ -38,7 +38,8 @@ def returngpa(sub):
     for i in range(len(k)-1):
         a = k[i]
         tval = tval+g[a[2]]*int(a[1])
-        tcred = tcred + int(a[1])
+        if(a[2]!='F'):
+            tcred = tcred + int(a[1])
         #print(a[1],a[2])
     #print(tval,tcred)
     return "%.2f" % (tval/tcred)
